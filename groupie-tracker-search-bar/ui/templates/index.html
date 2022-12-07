@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/style/style.css">
+    <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a class="logo" href="/">
+                <img class="logo_img" src="./static/img/2.png" alt="#">
+                <span class="logo_text">groupie tracker</span>
+            </a>
+        </div>
+        <div class="searchbar"  >
+            <form class="search-bar" method="post" action="/search" autocomplete="off">
+                <input type="search" id="search-bar" name="search-bar" list="searchbar" placeholder="Search"> 
+                <!-- <input type="submit" value="Submit">-->
+                <button><img src="https://img.icons8.com/ios-filled/30/cac7ff/search--v1.png"/></button>
+            </form>
+               <datalist id="searchbar">
+                {{range .AllArtists}}
+                <option value="{{.Name}}"> {{.Name}} - artist-band </option>
+                    {{range .Members}}
+                        <option value="{{.}}"> {{.}} - members </option>
+                    {{end}}
+                    <option value="{{.FirstAlbum}}"> {{.FirstAlbum}} - first album date </option>
+                    <option value="{{.CreationDate}}"> {{.CreationDate}} - creation date</option>
+        
+                    
+                    {{range .Cities}}
+                    <option value="{{.}}">{{.}} - locations</option>
+
+                    {{end}}
+                
+                {{end}}
+               </datalist>
+        </div>
+
+
+
+
+        <div class="cards">
+            {{range .FoundArtists}}
+            <a href="./pageTwo/{{.ID}}" class="link-card">
+            <div class="block">
+                    <div class="card1">
+                        
+                            <div class="img">
+                                <img class="img" src="{{.Image}}" alt="">
+                            </div>
+                            <span class="name">{{.Name}}</span>
+                        
+                    </div>
+            </div>
+        </a>
+            {{end}}
+        </div>
+
+        
+    </div>
+    
+    
+</body>
+</html>

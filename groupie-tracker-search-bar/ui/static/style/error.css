@@ -1,0 +1,52 @@
+/* * {
+    margin: 0;
+} */
+
+
+
+body {
+    background-image: url(../img/image.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+.container{
+
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+    
+}
+
+.wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.logo{
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.logo_img{
+    max-width: 150px;
+}
+
+.logo_text {
+    display: block;
+    margin: 0 auto;
+    
+}
+
+@media (max-width: 370px) {
+    .logo_text {
+        font-size: 20px;
+    }
+}

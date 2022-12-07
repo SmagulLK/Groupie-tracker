@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' serif;
+}
+
+body {
+    background-image: url(../img/image.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.container {
+	max-width: 1200px;
+	margin: 0px auto;
+	padding: 0 15px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo{
+    display: block;
+    width: 300px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 28px;
+}
+
+.logo_img{
+    max-width: 300px;
+}
+
+.logo_text {
+    display: block;
+    width: 300px;
+}
+
+.cards{   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   
+}
+
+.card {
+   
+    height: 70px;
+    /* margin: 60px; */
+}
+
+.card1 {
+    margin: 0 auto;
+}
+
+.link-card {
+    margin: 10px;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+    
+   
+    box-shadow: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    /* overflow: hidden; */
+
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.block {
+    width: 200px;
+    height: 200px;
+}
+
+.name {
+    text-align: center;
+    display: block;
+}
+
+.img {
+    border-radius: 50%;
+    max-width: 120px;
+    height: 120;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.searchbar {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 0 20px;
+    font-size: 20px;
+    color: #cac7ff;
+    width: calc( 100% - 10px );
+}
+
+.search-bar button {
+    padding: 5px;
+    background: none;
+    border-radius: 10px;
+    border: 1px solid #cac7ff;
+}
+
+.search-bar button:hover {
+    padding: 5px;
+    background: none;
+    border-radius: 10px;
+    border: 1px solid #a7a2ff;
+}
+
+@media (max-width: 470px) {
+    .header {
+        padding-top: 30px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo_img {
+        max-width: 100px
+    }
+}

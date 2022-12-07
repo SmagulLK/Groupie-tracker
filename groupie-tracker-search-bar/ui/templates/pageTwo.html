@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/style2.css">
+    <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=2c65aad0-94d9-45d8-ae77-3b3eb1cca5fa&lang=ru_RU" type="text/javascript">
+</script>
+  
+    <script>
+        let loc = '{{.Loc.Locations}}'
+        console.log(loc) 
+    </script>
+  
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a class="logo" href="/">
+                <img class="logo_img" src="/static/img/2.png" alt="#">
+                <span class="logo_text">groupie</br>tracker</span>
+            </a>
+        </div>
+        <div class="card">
+
+            <div class="label">
+                    <img class="img_item" src="{{.Art.Image}}" alt="">
+                <div class="label_text">
+                    <div class="name">{{.Art.Name}}</div>
+                    <div class="date">{{.Art.CreationDate}}</div>
+                </div>
+               <div class="first-album">First Album: <span>{{.Art.FirstAlbum}}</span></div>
+            </div>
+            
+            
+            <span class="more_locations more" id="more">Dates and Locations</span>
+
+            <span class="more_members more" id="member">Members</span>
+
+            <div class="relations">
+                <div class="relations_header">
+                    <div class="dates-locations">
+                        <p class="dates-locations_text" id="close">Close</p>
+                        {{range $location, $dates := .Art.DatesLocations}}
+                        <div class="accordion">
+                            <div class="contentBx">
+                                <div class="label loc">{{$location}}</div>
+                                {{range $index, $date := $dates}}
+                                <div class="content">
+                                    <p>
+                                        {{$date}}
+                                    </p>
+                                </div>
+                                {{end}}
+                            </div>
+                        </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="members">
+               <div class="members_item">
+                <p class="members_item-text" id="close-members">Close</p>
+                   {{range $value := .Art.Members}}
+                    <div class="member">{{$value}}</div>
+                   {{end}}
+               </div> 
+            </div>
+        </div>
+        <div class="map" id="map"></div>
+    </div>
+    
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
