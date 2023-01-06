@@ -1,15 +1,17 @@
 package handlers
 
 import (
-	"html/template"
-	"net/http"
-
 	checkRequest "groupie/internal/checkRequest"
 	"groupie/internal/errors"
 	"groupie/internal/parseJson"
+	"html/template"
+	"net/http"
 )
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
+	//if LoggedIn == true {
+	//
+	//}
 	statusCheckMethod := checkRequest.CheckMethod(r)
 	if statusCheckMethod != http.StatusOK {
 		check := checkRequest.CheckStatus(statusCheckMethod)
