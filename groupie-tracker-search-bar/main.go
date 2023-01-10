@@ -34,6 +34,7 @@ func main() {
 	mux.HandleFunc("/search", handlers.SearchHandler)
 	mux.HandleFunc("/reg", RegisterHandler)
 	mux.HandleFunc("/logout", LogoutHandler)
+	mux.HandleFunc("/forget", ForgetHandler)
 	mux.HandleFunc("/login", LoginHandler)
 	mux.HandleFunc("/account", AccountHandler)
 	mux.HandleFunc("/delete", DeleteHandler)
@@ -170,7 +171,8 @@ func ForgetHandler(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("they is here")
 			password := Userregistration.GeneratePassword()
 			Userregistration.UpdatePassword(email, password, Db)
-
+			Userregistration.SendEmail(email, password)
+			http.Redirect(w, r, "/login", http.StatusSeeOther)
 		}
 	}
 

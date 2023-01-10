@@ -6,6 +6,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"log"
 	"math/rand"
+	"net/mail"
+	"net/smtp"
 )
 
 type User struct {
@@ -94,4 +96,30 @@ func DeleteUser(username string, Db *sql.DB) error {
 		return err
 	}
 	return nil
+}
+func SendEmail(to string, password string) {
+	// Set up the email
+	from := mail.Address{"Reset Password", "smagul.alkey@gmail.com"}
+	toAddress := mail.Address{"", to}
+	subject := "Reset Password"
+	body := "Your new password is: " + password
+
+	// Set up the message
+	header := make(map[string]string)
+	header["From"] = from.String()
+	header["To"] = toAddress.String()
+	header["Subject"] = subject
+	message := ""
+	for k, v := range header {
+		message += fmt.Sprintf("%s: %s\r\n", k, v)
+	}
+	message += "\r\n" + body
+
+	// Connect to the SMTP server
+	smtpServer := "smtp.elasticemail.com:2525"
+	auth := smtp.PlainAuth("", "smagul.alkey@gmail.com", "2C7B18DE61F94A629AD7A1E04126C86310AE", "smtp.elasticemail.com")
+	err := smtp.SendMail(smtpServer, auth, from.Address, []string{to}, []byte(message))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
